@@ -1,0 +1,1 @@
+void	ft_putunsignedint(unsigned int n, int *rtn);

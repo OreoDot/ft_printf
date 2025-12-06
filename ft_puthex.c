@@ -1,0 +1,1 @@
+void	ft_puthex(int n, int *rtn);

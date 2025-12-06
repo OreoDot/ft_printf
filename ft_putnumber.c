@@ -1,0 +1,1 @@
+void	ft_putnumber(int n, int *rtn);

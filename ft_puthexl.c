@@ -1,0 +1,1 @@
+void	ft_puthexl(int n, int *rtn);
