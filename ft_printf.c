@@ -6,47 +6,39 @@
 /*   By: dolaniya <dolaniya@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/06 22:16:51 by dolaniya          #+#    #+#             */
-/*   Updated: 2025/12/06 22:16:54 by dolaniya         ###   ########.fr       */
+/*   Updated: 2025/12/17 05:00:03 by dolaniya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int print_int(va_list args);
+static int handle_format(char c, va_list ap)
+{
+	if (c == 's')
+		return (ft_putstr(va_arg(ap, char *)));
+	if (c == 'c')
+		return (ft_putchar(va_arg(ap, int)));
+	return (0);
+}
 
 int ft_printf(const char *format, ...)
 {
-	va_list args;
+	va_list ap;
 	int count;
-	int i;
-
-	if (!format)
-		return (-1);
-	va_start(args, format);
+	
 	count = 0;
-	i = 0;
-	while (format[i])
+	va_start(ap, format);
+	while (*format)
 	{
-		if (format[i] == '%')
+		if (*format == '%' && *(format + 1))
 		{
-			i++;
-			if (format[i] == 'd' || format[i] == 'i')
-				count += print_int(args);
-			else if (format[i] == '%')
-				count += put_char('%');
-			else if (format[i] != '\0')
-			{
-				/* unsupported specifier: print it literally (simple behavior) */
-				count += put_char('%');
-				count += put_char(format[i]);
-			}
-			if (format[i] == '\0')
-				break;
+			format++;
+			count = count + handle_format(*format, ap);
 		}
 		else
-			count += put_char(format[i]);
-		i++;
+			count = count + ft_putchar(*format);
+		format++;
 	}
-	va_end(args);
+	va_end(ap);
 	return (count);
 }

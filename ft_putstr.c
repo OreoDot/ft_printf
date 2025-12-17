@@ -1,27 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft _putstr.c                                       :+:      :+:    :+:   */
+/*   ft_putstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dolaniya <dolaniya@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/28 07:46:18 by dolaniya          #+#    #+#             */
-/*   Updated: 2025/11/28 07:46:23 by dolaniya         ###   ########.fr       */
+/*   Updated: 2025/12/17 04:15:09 by dolaniya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	ft_putstr(const char *str, int *rtn)
+int	ft_putstr(const char *str)
 {
-	size_t	i;
-	
+	int	i;
 
 	if (!str)
-		return (ft_putstr("(null)", rtn));
+		return (ft_putstr("(null)"));
 	i = 0;
 	while (str[i])
-	{
-		ft_putchar(str[i++], rtn);
-	}
+		write(1, &str[i++], 1);
+	return (i);
 }

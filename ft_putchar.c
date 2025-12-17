@@ -6,14 +6,14 @@
 /*   By: dolaniya <dolaniya@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/26 11:06:23 by dolaniya          #+#    #+#             */
-/*   Updated: 2025/11/26 11:06:27 by dolaniya         ###   ########.fr       */
+/*   Updated: 2025/12/17 03:41:15 by dolaniya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	ft_putchar(char c, int *rtn)
+int	ft_putchar(char c)
 {	
 	write(1, &c, 1);
-	(*rtn)++;
+	return(1);
 }
