@@ -1,4 +1,4 @@
-*This project has been created as part of the 42 curriculum by [Dotun Oreoluwa], [DT].*
+*This project has been created as part of the 42 curriculum by [Dolaniya], [DT].*
 
 # ft_printf
 
